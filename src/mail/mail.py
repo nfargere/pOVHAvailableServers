@@ -1,4 +1,3 @@
-import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -7,11 +6,9 @@ class emailHelper:
 		self.config = config
 		self.emailFrom = config['SMTP']['From']
 		self.emailTo = config['SMTP']['To']
-		self.smtpServer = config['SMTP']['Server']
-		self.smtpPort = config['SMTP']['Port']		
 
-	def sendEmail(self, ovhServer):
-		msg = MIMEMultipart('alternative')
+	def createEmail(self, ovhServer):
+		msg = MIMEMultipart()
 		msg['Subject'] = "OVH server available"
 		msg['From'] = self.emailFrom
 		msg['To'] = self.emailTo
@@ -32,10 +29,4 @@ class emailHelper:
 		
 		msg.attach(MIMEText(html, 'html'))
 		
-		s = smtplib.SMTP(self.smtpServer, self.smtpPort)
-		#s = smtplib.SMTP('smtp.gmail.com', 587)
-		#s.starttls()
-		#s.login("YOUR_GMAIL_ADDRESS", "YOUR_GMAIL_PASSWORD")
-		#s.send_message(msg)
-		s.sendmail(self.emailFrom, self.emailTo, msg.as_string())
-		s.quit()
+		return msg
