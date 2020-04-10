@@ -1,5 +1,3 @@
-#rename this template file "config.txt"
-
 [API]
 url = https://url-of-api.com
 
@@ -11,7 +9,9 @@ link = https://link-to-book-the-server.com
 [SMTP]
 From = from@example.com
 To = to@example.com
-UseGmail = True
+UseGmail = False
 #useless if using Gmail
 server = localhost
 port = 25
+username = my_username
+password = my_password
