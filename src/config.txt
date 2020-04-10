@@ -1,0 +1,17 @@
+#rename this template file "config.txt"
+
+[API]
+url = https://url-of-api.com
+
+[Server]
+Hardware = server-reference
+Region = europe
+link = https://link-to-book-the-server.com
+
+[SMTP]
+From = from@example.com
+To = to@example.com
+UseGmail = True
+#useless if using Gmail
+server = localhost
+port = 25
